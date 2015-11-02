@@ -13,8 +13,8 @@ import org.swerverobotics.library.interfaces.*;
 public class MyFirstOpMode extends SynchronousOpMode
     {
     /* Declare here any fields you might find useful. */
-    // DcMotor motorLeft = null;
-    // DcMotor motorRight = null;
+    DcMotor motorLeft = null;
+    DcMotor motorRight = null;
 
     @Override public void main() throws InterruptedException
         {
