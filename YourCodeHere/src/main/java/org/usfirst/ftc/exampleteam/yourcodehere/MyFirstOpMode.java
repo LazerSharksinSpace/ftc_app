@@ -10,34 +10,54 @@ import org.swerverobotics.library.interfaces.*;
  * Java package.
  */
 @TeleOp(name="My First OpMode")
-public class MyFirstOpMode extends SynchronousOpMode
-    {
+public class MyFirstOpMode extends SynchronousOpMode {
     /* Declare here any fields you might find useful. */
     DcMotor motorLeft = null;
     DcMotor motorRight = null;
+    DcMotor motorArm = null;
+    DcMotor motorEx = null;
 
-    @Override public void main() throws InterruptedException
-        {
+    @Override
+    public void main() throws InterruptedException {
         /* Initialize our hardware variables. Note that the strings used here as parameters
          * to 'get' must correspond to the names you assigned during the robot configuration
          * step you did in the FTC Robot Controller app on the phone.
          */
-        // this.motorLeft = this.hardwareMap.dcMotor.get("motorLeft");
-        // this.motorRight = this.hardwareMap.dcMotor.get("motorRight");
+        this.motorLeft = this.hardwareMap.dcMotor.get("motorL");
+        this.motorRight = this.hardwareMap.dcMotor.get("motorR");
+        this.motorArm = this.hardwareMap.dcMotor.get("motorArm");
+        this.motorEx = this.hardwareMap.dcMotor.get("motorEx");
 
         // Wait for the game to start
         waitForStart();
 
-        // Go go gadget robot!
-        while (opModeIsActive())
+        // telOp Code below...
+        while (opModeIsActive())//loop to run while play is active. Until stop button is pressed.
+        {
+            if (updateGamepads()) //method to read gamepads
             {
-            if (updateGamepads())
-                {
-                // The game pad state has changed. Do something with that!
+                // tank drive
+                motorLeft.setPower(gamepad1.left_stick_y);
+                motorRight.setPower(gamepad1.right_stick_y);
+
+                // Arm Control- Uses dual buttons to control motor direction
+                if (gamepad2.right_bumper) {
+                    motorArm.setPower(-gamepad2.right_trigger); // if both Bumper + Trigger, then negative power, runs arm down
+                } else {
+                    motorArm.setPower(gamepad2.right_trigger);  // else trigger positive value, runs arm up
                 }
 
-            telemetry.update();
-            idle();
-            }
-        }
-    }
+                // Arm Extension- Uses dual buttons to control motor direction
+                if (gamepad2.left_bumper) {
+                    motorEx.setPower(-gamepad2.left_trigger); // if both Bumper + Trigger, then negative power, Brings arm in
+                } else {
+                    motorEx.setPower(gamepad2.left_trigger);  // else trigger positive value, extends arm forward
+                }
+
+                telemetry.update();
+                idle();
+            }//if
+        }//OpModeActive
+
+    }//Main
+}//MyFirstOpMode
