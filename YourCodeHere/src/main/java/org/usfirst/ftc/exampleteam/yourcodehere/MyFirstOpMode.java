@@ -16,6 +16,8 @@ public class MyFirstOpMode extends SynchronousOpMode {
     DcMotor motorRight = null;
     DcMotor motorArm = null;
     DcMotor motorEx = null;
+    Servo   servoHR = null;
+    Servo   servoHL = null;
 
     @Override
     public void main() throws InterruptedException {
@@ -27,7 +29,8 @@ public class MyFirstOpMode extends SynchronousOpMode {
         this.motorRight = this.hardwareMap.dcMotor.get("motorR");
         this.motorArm = this.hardwareMap.dcMotor.get("motorArm");
         this.motorEx = this.hardwareMap.dcMotor.get("motorEx");
-
+        this.servoHR = this.hardwareMap.servo.get("servoR");
+        this.servoHL = this.hardwareMap.servo.get("servoL");
         // Wait for the game to start
         waitForStart();
 
@@ -43,15 +46,22 @@ public class MyFirstOpMode extends SynchronousOpMode {
                 // Arm Control- Uses dual buttons to control motor direction
                 if (gamepad2.right_bumper) {
                     motorArm.setPower(-gamepad2.right_trigger); // if both Bumper + Trigger, then negative power, runs arm down
-                } else {
+                }
+                else {
                     motorArm.setPower(gamepad2.right_trigger);  // else trigger positive value, runs arm up
                 }
 
                 // Arm Extension- Uses dual buttons to control motor direction
                 if (gamepad2.left_bumper) {
                     motorEx.setPower(-gamepad2.left_trigger); // if both Bumper + Trigger, then negative power, Brings arm in
-                } else {
+                }
+                else {
                     motorEx.setPower(gamepad2.left_trigger);  // else trigger positive value, extends arm forward
+                }
+
+                if(gamepad2.x){
+                    servoHR.setPosition(0.5);
+                    servoHL.setPosition(0.5);
                 }
 
                 telemetry.update();
