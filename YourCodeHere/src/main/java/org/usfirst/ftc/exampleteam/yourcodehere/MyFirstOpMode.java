@@ -31,6 +31,12 @@ public class MyFirstOpMode extends SynchronousOpMode {
         this.motorEx = this.hardwareMap.dcMotor.get("motorEx");
         this.servoHR = this.hardwareMap.servo.get("servoR");
         this.servoHL = this.hardwareMap.servo.get("servoL");
+
+
+        //reverse motors
+        motorLeft.setDirection(DcMotor.Direction.REVERSE);
+        motorRight.setDirection(DcMotor.Direction.REVERSE);
+        motorArm.setDirection(DcMotor.Direction.REVERSE);
         // Wait for the game to start
         waitForStart();
 
@@ -42,6 +48,12 @@ public class MyFirstOpMode extends SynchronousOpMode {
                 // tank drive
                 motorLeft.setPower(gamepad1.left_stick_y);
                 motorRight.setPower(gamepad1.right_stick_y);
+
+
+                //Arm Control w/Joystick
+                motorArm.setPower(gamepad2.right_stick_y/3);
+                motorEx.setPower(gamepad2.left_stick_y/4);
+/*
 
                 // Arm Control- Uses dual buttons to control motor direction
                 if (gamepad2.right_bumper) {
@@ -58,11 +70,19 @@ public class MyFirstOpMode extends SynchronousOpMode {
                 else {
                     motorEx.setPower(gamepad2.left_trigger);  // else trigger positive value, extends arm forward
                 }
+*/
 
                 if(gamepad2.x){
-                    servoHR.setPosition(0.5);
-                    servoHL.setPosition(0.5);
+                servoHR.setPosition(1);
+                servoHL.setPosition(0.1);
                 }
+
+                if(gamepad2.b){
+                    servoHR.setPosition(0.05);
+                    servoHL.setPosition(1);
+                }
+
+
 
                 telemetry.update();
                 idle();
