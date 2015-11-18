@@ -15,10 +15,10 @@ import org.swerverobotics.library.internal.ThreadSafeAnalogInput;
  *
  * You can add your configuration and replicate desired code.
  */
-@Autonomous(name="LeftLazerAuto") //name to appear in Driver Station OpMode selection
+@Autonomous(name="RightLazerAuto") //name to appear in Driver Station OpMode selection
 //@Disabled  //if you un-comment this, it will keep from showing on DriverStation
 
-public class LazerSharkAuto extends SynchronousOpMode
+public class LazerSharkAuto2 extends SynchronousOpMode
 {
     /* Declare variable for all components to be used. Note initial values set to null. */
 
@@ -39,7 +39,7 @@ public class LazerSharkAuto extends SynchronousOpMode
          * Autonomous Code Below://
          *************************/
         DriveForwardTime(DRIVE_POWER, 3000);
-        TurnLeft(DRIVE_POWER, 2000);
+        TurnRight(DRIVE_POWER, 2000);
         StopDrivingTime(1000);
 
         DriveForwardTime(DRIVE_POWER, 3000);
