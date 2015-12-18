@@ -29,8 +29,8 @@ public class LazerShark_teleOp extends SynchronousOpMode {
         this.motorRight = this.hardwareMap.dcMotor.get("motorR");
         this.motorArm = this.hardwareMap.dcMotor.get("motorArm");
         this.motorEx = this.hardwareMap.dcMotor.get("motorEx");
-        this.servoHR = this.hardwareMap.servo.get("servoR");
-        this.servoHL = this.hardwareMap.servo.get("servoL");
+        this.servoHR = this.hardwareMap.servo.get("servoA");
+        this.servoHL = this.hardwareMap.servo.get("servoB");
 
 
         //reverse motors
@@ -74,11 +74,11 @@ public class LazerShark_teleOp extends SynchronousOpMode {
 
                 if(gamepad2.x){
                 servoHR.setPosition(1);
-                servoHL.setPosition(0.1);
+                servoHR.setPosition(0.1);
                 }
 
                 if(gamepad2.b){
-                    servoHR.setPosition(0.05);
+                    servoHL.setPosition(0.05);
                     servoHL.setPosition(1);
                 }
 
