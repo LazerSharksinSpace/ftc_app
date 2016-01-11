@@ -12,7 +12,7 @@ import org.swerverobotics.library.internal.ThreadSafeAnalogInput;
  * Linear Autonomous program made following example "Basic Autonomous" video by SwerveRobotics
  * Uses power/time based motor movement to achieve desired distances and turns.
  * Robot configuration includes: tank drive motors, 1 servo for arm positioning
- *
+ *POOP
  * You can add your configuration and replicate desired code.
  */
 @Autonomous(name="LeftLazerAuto") //name to appear in Driver Station OpMode selection
@@ -31,6 +31,8 @@ public class LazerSharkAuto extends SynchronousOpMode
         // Initialize motors to match DS configuration names
         motorLeft = hardwareMap.dcMotor.get("motorL");
         motorRight = hardwareMap.dcMotor.get("motorR");
+        // reverse motor
+        motorLeft.setDirection(DcMotor.Direction.REVERSE);
 
         // Wait for the game to start
         waitForStart();
@@ -38,12 +40,14 @@ public class LazerSharkAuto extends SynchronousOpMode
         /************************
          * Autonomous Code Below://
          *************************/
-        DriveForwardTime(DRIVE_POWER, 3000);
-        TurnLeft(DRIVE_POWER, 2000);
-        StopDrivingTime(1000);
+        DriveForwardTime(DRIVE_POWER, 2000);
+        StopDrivingTime(2500);
 
-        DriveForwardTime(DRIVE_POWER, 3000);
-        StopDrivingTime(2430);
+        TurnLeft(DRIVE_POWER, 800);
+        StopDrivingTime(800);
+
+        DriveForwardTime(DRIVE_POWER, 3500);
+        StopDrivingTime(2700);
 
 
     }//Main

@@ -19,6 +19,7 @@ public class LazerShark_teleOp extends SynchronousOpMode {
     Servo   servoHR = null;
     Servo   servoHL = null;
 
+
     @Override
     public void main() throws InterruptedException {
         /* Initialize our hardware variables. Note that the strings used here as parameters
@@ -31,12 +32,11 @@ public class LazerShark_teleOp extends SynchronousOpMode {
         this.motorEx = this.hardwareMap.dcMotor.get("motorEx");
         this.servoHR = this.hardwareMap.servo.get("servoA");
         this.servoHL = this.hardwareMap.servo.get("servoB");
-
+        
 
         //reverse motors
-        motorLeft.setDirection(DcMotor.Direction.REVERSE);
         motorRight.setDirection(DcMotor.Direction.REVERSE);
-        motorArm.setDirection(DcMotor.Direction.REVERSE);
+
         // Wait for the game to start
         waitForStart();
 
@@ -45,47 +45,56 @@ public class LazerShark_teleOp extends SynchronousOpMode {
         {
             if (updateGamepads()) //method to read gamepads
             {
-                // tank drive
-                motorLeft.setPower(gamepad1.left_stick_y);
-                motorRight.setPower(gamepad1.right_stick_y);
+                    // tank drive
+                    motorLeft.setPower(gamepad1.left_stick_y);
+                    motorRight.setPower(gamepad1.right_stick_y);
 
 
-                //Arm Control w/Joystick
-                motorArm.setPower(gamepad2.right_stick_y/3);
-                motorEx.setPower(gamepad2.left_stick_y/4);
-/*
+                    //Arm Control w/Joystick
+                    motorArm.setPower(gamepad2.right_stick_y/3);
+                    motorEx.setPower(gamepad2.left_stick_y/4);
+    /*
 
-                // Arm Control- Uses dual buttons to control motor direction
-                if (gamepad2.right_bumper) {
-                    motorArm.setPower(-gamepad2.right_trigger); // if both Bumper + Trigger, then negative power, runs arm down
-                }
-                else {
-                    motorArm.setPower(gamepad2.right_trigger);  // else trigger positive value, runs arm up
-                }
+                    // Arm Control- Uses dual buttons to control motor direction
+                    if (gamepad2.right_bumper) {
+                        motorArm.setPower(-gamepad2.right_trigger); // if both Bumper + Trigger, then negative power, runs arm down
+                    }
+                    else {
+                        motorArm.setPower(gamepad2.right_trigger);  // else trigger positive value, runs arm up
+                    }
 
-                // Arm Extension- Uses dual buttons to control motor direction
-                if (gamepad2.left_bumper) {
-                    motorEx.setPower(-gamepad2.left_trigger); // if both Bumper + Trigger, then negative power, Brings arm in
-                }
-                else {
-                    motorEx.setPower(gamepad2.left_trigger);  // else trigger positive value, extends arm forward
-                }
-*/
+                    // Arm Extension- Uses dual buttons to control motor direction
+                    if (gamepad2.left_bumper) {
+                        motorEx.setPower(-gamepad2.left_trigger); // if both Bumper + Trigger, then negative power, Brings arm in
+                    }
+                    else {
+                        motorEx.setPower(gamepad2.left_trigger);  // else trigger positive value, extends arm forward
+                    }
+    */
 
-                if(gamepad2.x){
-                servoHR.setPosition(1);
-                servoHR.setPosition(0.1);
-                }
+                    if(gamepad2.x){
+                    servoHR.setPosition(1);
+                    servoHR.setPosition(0.1);
+                    }
+                    if(gamepad2.y) {
+                        servoHR.setPosition(0.05);
+                        servoHR.setPosition(1);
+                    }
+                    if(gamepad2.b){
+                        servoHL.setPosition(0.05);
+                        servoHL.setPosition(1);
+                    }
+                    if(gamepad2.a){
+                        servoHL.setPosition(1);
+                        servoHL.setPosition(0.05);
+                    }
 
-                if(gamepad2.b){
-                    servoHL.setPosition(0.05);
-                    servoHL.setPosition(1);
-                }
 
 
 
-                telemetry.update();
-                idle();
+
+                    telemetry.update();
+                    idle();
             }//if
         }//OpModeActive
 
