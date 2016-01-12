@@ -18,7 +18,9 @@ public class LazerShark_teleOp extends SynchronousOpMode {
     DcMotor motorEx = null;
     Servo   servoHR = null;
     Servo   servoHL = null;
-    Servo   servoCL = null;
+    Servo   servoC = null;
+    Servo   servoML = null;
+    Servo   servoMR = null;
 
 
     @Override
@@ -33,7 +35,10 @@ public class LazerShark_teleOp extends SynchronousOpMode {
         this.motorEx = this.hardwareMap.dcMotor.get("motorEx");
         this.servoHR = this.hardwareMap.servo.get("servoA");
         this.servoHL = this.hardwareMap.servo.get("servoB");
-        this.servoCL = this.hardwareMap.servo.get("servoC");
+        this.servoC = this.hardwareMap.servo.get("servoC");
+        this.servoML = this.hardwareMap.servo.get("servoML");
+        this.servoMR = this.hardwareMap.servo.get("servoMR");
+
 
 
         //reverse motors
@@ -89,14 +94,28 @@ public class LazerShark_teleOp extends SynchronousOpMode {
                         servoHL.setPosition(1);
                     }
                     if(gamepad2.b){
-                        servoCL.setPosition(0.05);
-                        servoCL.setPosition(1);
+                        servoC.setPosition(0.05);
+                        servoC.setPosition(1);
                     }
                     if(gamepad2.a){
-                        servoCL.setPosition(1);
-                        servoCL.setPosition(0.05);
+                        servoC.setPosition(1);
+                        servoC.setPosition(0.05);
                     }
-                    
+
+                    if(gamepad1.x){
+                        servoML.setPosition(1);
+                        servoML.setPosition(0.1);
+
+                        servoMR.setPosition(1);
+                        servoMR.setPosition(0.1);
+                    }
+                    if(gamepad1.b){
+                        servoML.setPosition(0.05);
+                        servoML.setPosition(1);
+
+                        servoMR.setPosition(0.05);
+                        servoMR.setPosition(1);
+                    }
 
 
 
