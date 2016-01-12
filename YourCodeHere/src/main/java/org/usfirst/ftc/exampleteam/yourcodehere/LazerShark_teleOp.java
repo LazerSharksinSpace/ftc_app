@@ -32,7 +32,7 @@ public class LazerShark_teleOp extends SynchronousOpMode {
         this.motorEx = this.hardwareMap.dcMotor.get("motorEx");
         this.servoHR = this.hardwareMap.servo.get("servoA");
         this.servoHL = this.hardwareMap.servo.get("servoB");
-        
+
 
         //reverse motors
         motorRight.setDirection(DcMotor.Direction.REVERSE);
