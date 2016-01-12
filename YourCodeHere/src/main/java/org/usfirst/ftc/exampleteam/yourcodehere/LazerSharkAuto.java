@@ -12,7 +12,7 @@ import org.swerverobotics.library.internal.ThreadSafeAnalogInput;
  * Linear Autonomous program made following example "Basic Autonomous" video by SwerveRobotics
  * Uses power/time based motor movement to achieve desired distances and turns.
  * Robot configuration includes: tank drive motors, 1 servo for arm positioning
- *
+ *POOP
  * You can add your configuration and replicate desired code.
  */
 @Autonomous(name="LeftLazerAuto") //name to appear in Driver Station OpMode selection
