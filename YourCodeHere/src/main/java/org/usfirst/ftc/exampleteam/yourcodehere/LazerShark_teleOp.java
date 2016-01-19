@@ -16,8 +16,7 @@ public class LazerShark_teleOp extends SynchronousOpMode {
     DcMotor motorRight = null;
     DcMotor motorArm = null;
     DcMotor motorEx = null;
-    Servo   servoHR = null;
-    Servo   servoHL = null;
+    Servo   servoB = null;
     Servo   servoC = null;
     Servo   servoML = null;
     Servo   servoMR = null;
@@ -33,8 +32,7 @@ public class LazerShark_teleOp extends SynchronousOpMode {
         this.motorRight = this.hardwareMap.dcMotor.get("motorR");
         this.motorArm = this.hardwareMap.dcMotor.get("motorArm");
         this.motorEx = this.hardwareMap.dcMotor.get("motorEx");
-        this.servoHR = this.hardwareMap.servo.get("servoA");
-        this.servoHL = this.hardwareMap.servo.get("servoB");
+        this.servoB = this.hardwareMap.servo.get("servoB");
         this.servoC = this.hardwareMap.servo.get("servoC");
         this.servoML = this.hardwareMap.servo.get("servoML");
         this.servoMR = this.hardwareMap.servo.get("servoMR");
@@ -80,18 +78,12 @@ public class LazerShark_teleOp extends SynchronousOpMode {
     */
 
                     if(gamepad2.x){
-                      servoHR.setPosition(1);
-                      servoHR.setPosition(0.1);
-
-                      servoHL.setPosition(1);
-                      servoHL.setPosition(0.1);
+                      servoB.setPosition(1);
+                      servoB.setPosition(0.1);
                     }
                     if(gamepad2.y) {
-                        servoHR.setPosition(0.05);
-                        servoHR.setPosition(1);
-
-                        servoHL.setPosition(0.05);
-                        servoHL.setPosition(1);
+                        servoB.setPosition(0.05);
+                        servoB.setPosition(1);
                     }
                     if(gamepad2.b){
                         servoC.setPosition(0.05);
