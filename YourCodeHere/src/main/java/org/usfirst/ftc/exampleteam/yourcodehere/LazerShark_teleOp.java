@@ -98,15 +98,15 @@ public class LazerShark_teleOp extends SynchronousOpMode {
                         servoML.setPosition(1);
                         servoML.setPosition(0.1);
 
-                        servoMR.setPosition(1);
                         servoMR.setPosition(0.1);
+                        servoMR.setPosition(1);
                     }
                     if(gamepad1.b){
                         servoML.setPosition(0.05);
                         servoML.setPosition(1);
 
-                        servoMR.setPosition(0.05);
                         servoMR.setPosition(1);
+                        servoMR.setPosition(0.05);
                     }
 
 
