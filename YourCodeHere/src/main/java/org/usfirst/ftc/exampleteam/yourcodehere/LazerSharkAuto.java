@@ -34,6 +34,8 @@ public class LazerSharkAuto extends SynchronousOpMode
         // reverse motor
         motorLeft.setDirection(DcMotor.Direction.REVERSE);
 
+        double DRIVE_POWER = 0.5;
+
         // Wait for the game to start
         waitForStart();
 
@@ -41,7 +43,7 @@ public class LazerSharkAuto extends SynchronousOpMode
          * Autonomous Code Below://
          *************************/
         DriveForwardTime(DRIVE_POWER, 2000);
-        StopDrivingTime(2500);
+        StopDrivingTime(500);
 
         TurnLeft(DRIVE_POWER, 800);
         StopDrivingTime(800);
@@ -54,7 +56,7 @@ public class LazerSharkAuto extends SynchronousOpMode
 
     /** Below: Basic Drive Methods used in Autonomous code...**/
     //set Drive Power variable
-    double DRIVE_POWER = 0.5;
+
 
     public void DriveForward(double power)
     {
@@ -76,6 +78,7 @@ public class LazerSharkAuto extends SynchronousOpMode
     public void StopDrivingTime(long time) throws InterruptedException
     {
         DriveForwardTime(0, time);
+
     }
 
     public void TurnLeft(double power, long time) throws InterruptedException
