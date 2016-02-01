@@ -16,10 +16,10 @@ public class LazerShark_teleOp extends SynchronousOpMode {
     DcMotor motorRight = null;
     DcMotor motorArm = null;
     DcMotor motorEx = null;
-    Servo   servoB = null;
-    Servo   servoC = null;
-    Servo   servoML = null;
-    Servo   servoMR = null;
+    Servo   bucket = null;
+    Servo   claw = null;
+    //Servo   servoML = null;
+    //Servo   servoMR = null;
 
 
     @Override
@@ -32,10 +32,10 @@ public class LazerShark_teleOp extends SynchronousOpMode {
         this.motorRight = this.hardwareMap.dcMotor.get("motorR");
         this.motorArm = this.hardwareMap.dcMotor.get("motorArm");
         this.motorEx = this.hardwareMap.dcMotor.get("motorEx");
-        this.servoB = this.hardwareMap.servo.get("servoB");
-        this.servoC = this.hardwareMap.servo.get("servoC");
-        this.servoML = this.hardwareMap.servo.get("servoML");
-        this.servoMR = this.hardwareMap.servo.get("servoMR");
+        this.bucket = this.hardwareMap.servo.get("bucket");
+        this.claw = this.hardwareMap.servo.get("claw");
+        //this.servoML = this.hardwareMap.servo.get("servoML");
+        //this.servoMR = this.hardwareMap.servo.get("servoMR");
 
 
 
@@ -78,23 +78,23 @@ public class LazerShark_teleOp extends SynchronousOpMode {
     */
 
                     if(gamepad2.x){
-                      servoB.setPosition(1);
-                      servoB.setPosition(0.1);
+                      bucket.setPosition(1);
+                      //bucket.setPosition(0.1);
                     }
                     if(gamepad2.y) {
-                        servoB.setPosition(0.05);
-                        servoB.setPosition(1);
+                        bucket.setPosition(0.05);
+                        //bucket.setPosition(.0.5);
                     }
                     if(gamepad2.b){
-                        servoC.setPosition(0.05);
-                        servoC.setPosition(1);
+                        claw.setPosition(0.05);
+                        claw.setPosition(1);
                     }
                     if(gamepad2.a){
-                        servoC.setPosition(1);
-                        servoC.setPosition(0.05);
+                        claw.setPosition(1);
+                        claw.setPosition(0.05);
                     }
 
-                    if(gamepad1.x){
+                   /* if(gamepad1.x){
                         servoML.setPosition(1);
                         servoML.setPosition(0.1);
 
@@ -107,7 +107,7 @@ public class LazerShark_teleOp extends SynchronousOpMode {
 
                         servoMR.setPosition(1);
                         servoMR.setPosition(0.05);
-                    }
+                    }*/
 
 
 
