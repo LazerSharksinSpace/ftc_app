@@ -38,12 +38,14 @@ public class LazerSharkAuto2 extends SynchronousOpMode
         /************************
          * Autonomous Code Below://
          *************************/
-        DriveForwardTime(DRIVE_POWER, 3000);
-        TurnRight(DRIVE_POWER, 2000);
-        StopDrivingTime(1000);
+        DriveForwardTime(DRIVE_POWER, 2000);
+        StopDrivingTime(500);
 
-        DriveForwardTime(DRIVE_POWER, 3000);
-        StopDrivingTime(2430);
+        TurnRight(DRIVE_POWER, 800);
+        StopDrivingTime(800);
+
+        DriveForwardTime(DRIVE_POWER, 3500);
+        StopDrivingTime(2700);
 
 
     }//Main

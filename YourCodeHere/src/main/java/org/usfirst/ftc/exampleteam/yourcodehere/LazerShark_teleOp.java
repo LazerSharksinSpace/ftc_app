@@ -84,10 +84,10 @@ public class LazerShark_teleOp extends SynchronousOpMode {
                         bucket.setPosition(0.05);
                     }
                     if(gamepad2.b){
-                        claw.setPosition(1);
+                        claw.setPosition(0.05);
                     }
                     if(gamepad2.a){
-                        claw.setPosition(0.05);
+                        claw.setPosition(1);
                     }
 
 
