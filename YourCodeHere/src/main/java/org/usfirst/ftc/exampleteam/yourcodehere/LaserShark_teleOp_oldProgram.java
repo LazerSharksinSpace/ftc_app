@@ -10,7 +10,7 @@ import org.swerverobotics.library.interfaces.*;
  * Java package.
  */
 @TeleOp(name="LazerShark OpMode")
-public class LazerShark_teleOp extends SynchronousOpMode {
+public class LaserShark_teleOp_oldProgram extends SynchronousOpMode {
     /* Declare here any fields you might find useful. */
     DcMotor motorLeft = null;
     DcMotor motorRight = null;
@@ -50,54 +50,54 @@ public class LazerShark_teleOp extends SynchronousOpMode {
         {
             if (updateGamepads()) //method to read gamepads
             {
-                    // tank drive
-                    motorLeft.setPower(gamepad1.left_stick_y);
-                    motorRight.setPower(gamepad1.right_stick_y);
+                // tank drive
+                motorLeft.setPower(gamepad1.left_stick_y);
+                motorRight.setPower(gamepad1.right_stick_y);
 
 
-                    //Arm Control w/Joystick
-                    motorArm.setPower(gamepad2.left_stick_y/3);
+                //Arm Control w/Joystick
+                motorArm.setPower(gamepad2.right_stick_y/3);
+                motorEx.setPower(gamepad2.left_stick_y/4);
+    /*
 
-
-
-         /*           // Arm Control- Uses dual buttons to control motor direction
+                    // Arm Control- Uses dual buttons to control motor direction
                     if (gamepad2.right_bumper) {
                         motorArm.setPower(-gamepad2.right_trigger); // if both Bumper + Trigger, then negative power, runs arm down
                     }
                     else {
                         motorArm.setPower(gamepad2.right_trigger);  // else trigger positive value, runs arm up
                     }
-*/
-                     //Arm Extension- Uses dual buttons to control motor direction
+
+                    // Arm Extension- Uses dual buttons to control motor direction
                     if (gamepad2.left_bumper) {
-                        motorEx.setPower(-gamepad2.left_trigger/3); // if both Bumper + Trigger, then negative power, Brings arm in
+                        motorEx.setPower(-gamepad2.left_trigger); // if both Bumper + Trigger, then negative power, Brings arm in
                     }
                     else {
-                        motorEx.setPower(gamepad2.left_trigger/3);  // else trigger positive value, extends arm forward
+                        motorEx.setPower(gamepad2.left_trigger);  // else trigger positive value, extends arm forward
                     }
+    */
 
-
-                    if(gamepad2.x){
-                      servoLeft.setPosition(1);
-                    }
-                    if(gamepad2.y) {
-                        servoLeft.setPosition(0.5);
-                    }
-                    if(gamepad2.b){
-                        servoRight.setPosition(1);
-                    }
-                    if(gamepad2.a){
-                        servoRight.setPosition(0.5);
-                    }
-
-
-
+                if(gamepad2.x){
+                    servoLeft.setPosition(1);
+                }
+                if(gamepad2.y) {
+                    servoLeft.setPosition(0.5);
+                }
+                if(gamepad2.b){
+                    servoRight.setPosition(1);
+                }
+                if(gamepad2.a){
+                    servoRight.setPosition(0.5);
+                }
 
 
 
 
-                    telemetry.update();
-                    idle();
+
+
+
+                telemetry.update();
+                idle();
             }//if
         }//OpModeActive
 
