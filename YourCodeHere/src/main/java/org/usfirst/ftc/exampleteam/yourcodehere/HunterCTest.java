@@ -15,9 +15,9 @@ public class HunterCTest extends SynchronousOpMode {
     DcMotor motorLeft = null;
     DcMotor motorRight = null;
     DcMotor motorLegacy = null;
-    Servo   bucket = null;
-    Servo   claw = null;
-    Servo   servoML = null;
+    Servo   servoRight = null;
+    Servo   servoLeft = null;
+    Servo   servoMiddle = null;
     //Servo   servoMR = null;
 
 
@@ -32,9 +32,9 @@ public class HunterCTest extends SynchronousOpMode {
 
         this.motorRight = this.hardwareMap.dcMotor.get("motorR");
         this.motorLegacy = this.hardwareMap.dcMotor.get("motorArm");
-        this.bucket = this.hardwareMap.servo.get("servoL");
-        this.claw = this.hardwareMap.servo.get("servoR");
-        this.servoML = this.hardwareMap.servo.get("servoM");
+        this.servoLeft = this.hardwareMap.servo.get("servoL");
+        this.servoRight = this.hardwareMap.servo.get("servoR");
+        this.servoMiddle = this.hardwareMap.servo.get("servoM");
         //this.servoMR = this.hardwareMap.servo.get("servoMR");
 
 
@@ -78,22 +78,22 @@ public class HunterCTest extends SynchronousOpMode {
     */
 
                 if(gamepad2.x){
-                    bucket.setPosition(1);
+                    servoLeft.setPosition(1);
                 }
                 if(gamepad2.y) {
-                    bucket.setPosition(0.5);
+                    servoLeft.setPosition(0.5);
                 }
                 if(gamepad2.b){
-                    claw.setPosition(1);
+                    servoRight.setPosition(1);
                 }
                 if(gamepad2.a){
-                    claw.setPosition(0.5);
+                    servoRight.setPosition(0.5);
                 }
                 if(gamepad1.a){
-                    servoML.setPosition(1);
+                    servoMiddle.setPosition(1);
                 }
                 if(gamepad1.b){
-                    servoML.setPosition(0.5);
+                    servoMiddle.setPosition(0.5);
                 }
 
 
