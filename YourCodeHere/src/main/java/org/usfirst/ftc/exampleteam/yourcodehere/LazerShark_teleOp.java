@@ -18,7 +18,7 @@ public class LazerShark_teleOp extends SynchronousOpMode {
     DcMotor motorEx = null;
     Servo   bucket = null;
     Servo   claw = null;
-    //Servo   servoML = null;
+    Servo   servoM = null;
     //Servo   servoMR = null;
 
 
@@ -32,9 +32,9 @@ public class LazerShark_teleOp extends SynchronousOpMode {
         this.motorRight = this.hardwareMap.dcMotor.get("motorR");
         this.motorArm = this.hardwareMap.dcMotor.get("motorArm");
         this.motorEx = this.hardwareMap.dcMotor.get("motorEx");
-        this.bucket = this.hardwareMap.servo.get("bucket");
-        this.claw = this.hardwareMap.servo.get("claw");
-        //this.servoML = this.hardwareMap.servo.get("servoML");
+        this.bucket = this.hardwareMap.servo.get("servoL");
+        this.claw = this.hardwareMap.servo.get("servoR");
+        this.servoM = this.hardwareMap.servo.get("servoM");
         //this.servoMR = this.hardwareMap.servo.get("servoMR");
 
 

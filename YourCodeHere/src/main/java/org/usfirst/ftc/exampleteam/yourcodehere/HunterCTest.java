@@ -32,9 +32,9 @@ public class HunterCTest extends SynchronousOpMode {
 
         this.motorRight = this.hardwareMap.dcMotor.get("motorR");
         this.motorLegacy = this.hardwareMap.dcMotor.get("motorArm");
-        this.bucket = this.hardwareMap.servo.get("bucket");
-        this.claw = this.hardwareMap.servo.get("claw");
-        this.servoML = this.hardwareMap.servo.get("servoML");
+        this.bucket = this.hardwareMap.servo.get("servoL");
+        this.claw = this.hardwareMap.servo.get("servoR");
+        this.servoML = this.hardwareMap.servo.get("servoM");
         //this.servoMR = this.hardwareMap.servo.get("servoMR");
 
 
