@@ -57,7 +57,7 @@ public class HunterCTest extends SynchronousOpMode {
 
 
                 //Arm Control w/Joystick
-                motorLegacy.setPower(gamepad2.right_stick_y/3);
+                motorLegacy.setPower(gamepad2.right_stick_y / 3);
     /*
 
                     // Arm Control- Uses dual buttons to control motor direction
@@ -77,16 +77,19 @@ public class HunterCTest extends SynchronousOpMode {
                     }
     */
 
-                if(gamepad2.x){
+                if (gamepad2.x) {
                     servoLeft.setPosition(1);
                 }
-                if(gamepad2.y) {
+                if (gamepad2.y) {
                     servoLeft.setPosition(0.5);
                 }
-                if(gamepad2.b){
+                if (gamepad2.b) {
                     servoRight.setPosition(1);
                 }
-                if(gamepad2.a){
+                else if(gamepad2.a) {
+                    servoRight.setPosition(0);
+                }
+               else{
                     servoRight.setPosition(0.5);
                 }
                 if(gamepad1.a){
