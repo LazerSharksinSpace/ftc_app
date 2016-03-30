@@ -7,19 +7,23 @@ import org.swerverobotics.library.interfaces.*;
 /**
  * A skeletal example of a do-nothing first OpMode. Go ahead and change this code
  * to suit your needs, or create sibling OpModes adjacent to this one in the same
- * Java package.
- */
+ * Java package.*/
+
 @TeleOp(name="LazerShark OpMode")
 public class LazerShark_teleOp extends SynchronousOpMode {
     /* Declare here any fields you might find useful. */
+    //Active Motors
     DcMotor motorLeft = null;
     DcMotor motorRight = null;
     DcMotor motorArm = null;
     DcMotor motorEx = null;
+    DcMotor motorArm2 = null;
+    DcMotor motorEx2 = null;
+    //Active Servos
     Servo   servoLeft = null;
     Servo   servoRight = null;
     Servo   servoMiddle = null;
-    //Servo   servoMR = null;
+
 
 
     @Override
@@ -27,15 +31,18 @@ public class LazerShark_teleOp extends SynchronousOpMode {
         /* Initialize our hardware variables. Note that the strings used here as parameters
          * to 'get' must correspond to the names you assigned during the robot configuration
          * step you did in the FTC Robot Controller app on the phone.
-         */
+         *///Activated Motors
         this.motorLeft = this.hardwareMap.dcMotor.get("motorL");
         this.motorRight = this.hardwareMap.dcMotor.get("motorR");
         this.motorArm = this.hardwareMap.dcMotor.get("motorArm");
         this.motorEx = this.hardwareMap.dcMotor.get("motorEx");
+        this.motorArm2 = this.hardwareMap.dcMotor.get("motorArm2");
+        this.motorEx2 = this.hardwareMap.dcMotor.get("motorEx2");
+        //Activated Servos
         this.servoLeft = this.hardwareMap.servo.get("servoL");
         this.servoRight = this.hardwareMap.servo.get("servoR");
         this.servoMiddle = this.hardwareMap.servo.get("servoM");
-        //this.servoMR = this.hardwareMap.servo.get("servoMR");
+
 
 
 
@@ -57,17 +64,17 @@ public class LazerShark_teleOp extends SynchronousOpMode {
 
                     //Arm Control w/Joystick
                     motorArm.setPower(gamepad2.left_stick_y/3);
+                    motorArm2.setPower(gamepad2.right_stick_y/3);
 
 
-
-         /*           // Arm Control- Uses dual buttons to control motor direction
+                    // Arm Control- Uses dual buttons to control motor direction
                     if (gamepad2.right_bumper) {
-                        motorArm.setPower(-gamepad2.right_trigger); // if both Bumper + Trigger, then negative power, runs arm down
+                        motorEx2.setPower(-gamepad2.right_trigger); // if both Bumper + Trigger, then negative power, runs arm down
                     }
                     else {
-                        motorArm.setPower(gamepad2.right_trigger);  // else trigger positive value, runs arm up
+                        motorEx2.setPower(gamepad2.right_trigger);  // else trigger positive value, runs arm up
                     }
-*/
+
                      //Arm Extension- Uses dual buttons to control motor direction
                     if (gamepad2.left_bumper) {
                         motorEx.setPower(-gamepad2.left_trigger/3); // if both Bumper + Trigger, then negative power, Brings arm in
