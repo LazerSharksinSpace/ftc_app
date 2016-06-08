@@ -22,7 +22,6 @@ public class LazerShark_teleOp extends SynchronousOpMode {
     //Active Servos
     Servo   servoLeft = null;
     Servo   servoRight = null;
-    Servo   servoMiddle = null;
 
 
 
@@ -41,7 +40,7 @@ public class LazerShark_teleOp extends SynchronousOpMode {
         //Activated Servos
         this.servoLeft = this.hardwareMap.servo.get("servoL");
         this.servoRight = this.hardwareMap.servo.get("servoR");
-        this.servoMiddle = this.hardwareMap.servo.get("servoM");
+
 
 
 
@@ -90,13 +89,13 @@ public class LazerShark_teleOp extends SynchronousOpMode {
                     if(gamepad2.y) {
                         servoLeft.setPosition(0.5);
                     }
+
                     if(gamepad2.b){
                         servoRight.setPosition(1);
                     }
                     if(gamepad2.a){
                         servoRight.setPosition(0.5);
                     }
-
 
 
 

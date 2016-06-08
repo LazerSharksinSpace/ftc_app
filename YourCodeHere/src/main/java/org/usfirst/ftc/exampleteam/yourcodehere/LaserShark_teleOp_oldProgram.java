@@ -9,16 +9,16 @@ import org.swerverobotics.library.interfaces.*;
  * to suit your needs, or create sibling OpModes adjacent to this one in the same
  * Java package.
  */
-@TeleOp(name="LazerShark OpMode")
+@TeleOp(name="LaserShark OpMode old")
 public class LaserShark_teleOp_oldProgram extends SynchronousOpMode {
     /* Declare here any fields you might find useful. */
     DcMotor motorLeft = null;
     DcMotor motorRight = null;
     DcMotor motorArm = null;
     DcMotor motorEx = null;
-    Servo   servoLeft = null;
-    Servo   servoRight = null;
-    Servo   servoMiddle = null;
+   // Servo   servoLeft = null;
+   // Servo   servoRight = null;
+   // Servo   servoMiddle = null;
     //Servo   servoMR = null;
 
 
@@ -32,9 +32,9 @@ public class LaserShark_teleOp_oldProgram extends SynchronousOpMode {
         this.motorRight = this.hardwareMap.dcMotor.get("motorR");
         this.motorArm = this.hardwareMap.dcMotor.get("motorArm");
         this.motorEx = this.hardwareMap.dcMotor.get("motorEx");
-        this.servoLeft = this.hardwareMap.servo.get("servoL");
-        this.servoRight = this.hardwareMap.servo.get("servoR");
-        this.servoMiddle = this.hardwareMap.servo.get("servoM");
+       // this.servoLeft = this.hardwareMap.servo.get("servoL");
+        //this.servoRight = this.hardwareMap.servo.get("servoR");
+        //this.servoMiddle = this.hardwareMap.servo.get("servoM");
         //this.servoMR = this.hardwareMap.servo.get("servoMR");
 
 
@@ -75,9 +75,9 @@ public class LaserShark_teleOp_oldProgram extends SynchronousOpMode {
                     else {
                         motorEx.setPower(gamepad2.left_trigger);  // else trigger positive value, extends arm forward
                     }
-    */
 
-                if(gamepad2.x){
+
+                /*if(gamepad2.x){
                     servoLeft.setPosition(1);
                 }
                 if(gamepad2.y) {
@@ -89,7 +89,7 @@ public class LaserShark_teleOp_oldProgram extends SynchronousOpMode {
                 if(gamepad2.a){
                     servoRight.setPosition(0.5);
                 }
-
+    `   */
 
 
 
